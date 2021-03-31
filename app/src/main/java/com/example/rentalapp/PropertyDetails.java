@@ -15,4 +15,12 @@ public class PropertyDetails extends AppCompatActivity {
 
         getSupportActionBar().hide();
     }
+
+    public void showPropImg(){}
+
+    public void showPropDetails(){}
+
+    public void viewNextImg(){}
+
+    public void viewPrevImg(){}
 }

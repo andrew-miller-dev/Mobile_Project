@@ -21,6 +21,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(page);
     }
 
-
-
+    public void requestLocationShare(){}
 }

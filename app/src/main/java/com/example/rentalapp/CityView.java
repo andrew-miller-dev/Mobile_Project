@@ -15,8 +15,21 @@ public class CityView extends AppCompatActivity {
 
         getSupportActionBar().hide();
     }
+
     public void seeDetails(View v){
         Intent page = new Intent(CityView.this, PropertyDetails.class);
         startActivity(page);
     }
+
+    public void showCityMap(){}
+
+    public void showPropsOnMap(){}
+
+    public void showPropDetails(){}
+
+    public void showMoreDetails(){}
+
+    public void viewNextProp(){}
+
+    public void viewPrevProp(){}
 }
