@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
-    EditText inputCity;
+    private EditText inputCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
