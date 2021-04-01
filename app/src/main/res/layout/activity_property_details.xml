@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgViewPrev"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -20,7 +20,7 @@
         app:srcCompat="@color/cardview_dark_background" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgProp"
         android:layout_width="309dp"
         android:layout_height="219dp"
         android:layout_marginTop="32dp"
@@ -28,11 +28,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/imgViewPrev"
         app:srcCompat="@drawable/house_example" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/txtPropDetails"
         android:layout_width="314dp"
         android:layout_height="367dp"
         android:layout_marginTop="32dp"
@@ -42,28 +42,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.587"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProp" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btnViewPrev"
         android:layout_width="40dp"
         android:layout_height="219dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="."
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imgProp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btnViewNext"
         android:layout_width="40dp"
         android:layout_height="219dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/cardview_dark_background"
         android:text="."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/imgProp"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
