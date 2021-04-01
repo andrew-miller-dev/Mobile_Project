@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/txtnputCity"
+        android:id="@+id/inputCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -15,9 +15,8 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:padding="10dp"
-        android:text="City"
         app:layout_constraintEnd_toStartOf="@+id/btnSearchCity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
