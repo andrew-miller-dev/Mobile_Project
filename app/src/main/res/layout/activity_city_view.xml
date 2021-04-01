@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imgMap"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="fitXY"
@@ -18,19 +18,19 @@
         app:srcCompat="@drawable/maps_temp" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imgPropContainer"
         android:layout_width="314dp"
         android:layout_height="152dp"
         android:layout_marginBottom="60dp"
 
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintBottom_toBottomOf="@+id/imgMap"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/rounded_corners" />
 
     <Button
-        android:id="@+id/textView2"
+        android:id="@+id/btnSeeDetails"
         android:layout_width="174dp"
         android:layout_height="52dp"
         android:layout_marginTop="72dp"
@@ -39,12 +39,12 @@
         android:textColor="@color/white"
         android:onClick="seeDetails"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintEnd_toEndOf="@+id/imgPropContainer"
+        app:layout_constraintStart_toStartOf="@+id/imgPropContainer"
+        app:layout_constraintTop_toTopOf="@+id/imgPropContainer" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtPropName"
         android:layout_width="239dp"
         android:layout_height="44dp"
         android:layout_marginTop="12dp"
@@ -52,8 +52,8 @@
         android:text="Property Name"
         android:textColor="@color/white"
         android:textSize="35dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="@+id/imgPropContainer"
         app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintStart_toStartOf="@+id/imgPropContainer"
+        app:layout_constraintTop_toTopOf="@+id/imgPropContainer" />
 </androidx.constraintlayout.widget.ConstraintLayout>

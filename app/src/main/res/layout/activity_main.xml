@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/txtnputCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
@@ -18,12 +18,12 @@
         android:inputType="textPersonName"
         android:padding="10dp"
         android:text="City"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintEnd_toStartOf="@+id/btnSearchCity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgLogo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="36dp"
@@ -31,11 +31,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearchCity"
         app:srcCompat="@drawable/rent_home" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/btnSearchCity"
         android:layout_width="74dp"
         android:layout_height="67dp"
         android:layout_marginStart="37dp"
@@ -45,7 +45,7 @@
         android:layout_marginRight="49dp"
         android:onClick="searchCity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toEndOf="@+id/txtnputCity"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_search_category_default" />
 </androidx.constraintlayout.widget.ConstraintLayout>
