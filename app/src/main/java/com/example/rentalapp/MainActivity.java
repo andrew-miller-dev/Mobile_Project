@@ -1,8 +1,5 @@
 package com.example.rentalapp;
 
-// Google Maps API Key:
-// AIzaSyBypliw8O2xwVrcT_LoAUx9YFvuYjtvKjs
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
