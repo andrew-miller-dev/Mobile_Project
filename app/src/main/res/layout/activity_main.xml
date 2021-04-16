@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSearchCity"
-        app:srcCompat="@drawable/rent_home" />
+        app:srcCompat="@drawable/rent_a_ton_logo" />
 
     <ImageView
         android:id="@+id/btnSearchCity"

@@ -46,8 +46,8 @@ import static com.example.rentalapp.ConvertResponse.changeDetailsVisibility;
 import static com.example.rentalapp.ConvertResponse.getLocFromName;
 
 public class CityView extends AppCompatActivity implements OnMapReadyCallback {
-    private Map<LatLng, String> propMarkers = new HashMap<>();
     private GoogleMap cityMap;
+    private Map<LatLng, String> propMarkers = new HashMap<>();
     private String city;
     private String response;
     private String currentAddress;
