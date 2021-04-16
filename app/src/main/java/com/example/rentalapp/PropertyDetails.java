@@ -20,6 +20,8 @@ import static com.example.rentalapp.ConvertResponse.getPropertyData;
 
 public class PropertyDetails extends AppCompatActivity {
     Button btnCall;
+    ArrayList<Integer> rentalImgList;
+    int currentImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +39,6 @@ public class PropertyDetails extends AppCompatActivity {
             intent.setData(Uri.parse("tel:1-888-237-7945"));
             startActivity(intent);
         });
-
-
     }
 
     private RentalProperty getPropDetails() {
@@ -54,31 +54,38 @@ public class PropertyDetails extends AppCompatActivity {
 
     private void showPropDetails(RentalProperty rental) {
         TextView price = findViewById(R.id.txtPrice);
-        TextView datePosted = findViewById(R.id.txtDatePosted);
-        TextView city = findViewById(R.id.txtCity);
-        TextView state = findViewById(R.id.txtState);
-        TextView address = findViewById(R.id.txtAddress);
-        TextView propType = findViewById(R.id.txtPropType);
-        TextView bedroom = findViewById(R.id.txtBedrooms);
-        TextView bathroom = findViewById(R.id.txtBathrooms);
-        TextView squareFeet = findViewById(R.id.txtSquareFeet);
-
         price.setText("Price: $" + rental.price);
+
+        TextView datePosted = findViewById(R.id.txtDatePosted);
         datePosted.setText("Date Posted: " + rental.datePosted);
+
+        TextView city = findViewById(R.id.txtCity);
         city.setText("City: " + rental.city);
+
+        TextView state = findViewById(R.id.txtState);
         state.setText("State: " + rental.state);
+
+        TextView address = findViewById(R.id.txtAddress);
         address.setText("Address: " + rental.address);
+
+        TextView propType = findViewById(R.id.txtPropType);
         propType.setText("Property Type: " + rental.propType);
+
+        TextView bedroom = findViewById(R.id.txtBedrooms);
         bedroom.setText("Bedrooms: " + rental.bedroom);
+
+        TextView bathroom = findViewById(R.id.txtBathrooms);
         bathroom.setText("Bathrooms: " + rental.bathroom);
+
+        TextView squareFeet = findViewById(R.id.txtSquareFeet);
         squareFeet.setText("Square Footage: " + rental.squareFoot);
 
-        showPropImages(getPropImages(rental.propType));
+        getPropImages(rental.propType);
+        showPropImages();
     }
 
     public ArrayList<Integer>  getPropImages(String propType){
         GetRentalPictures rentalImg = new GetRentalPictures();
-        ArrayList<Integer> rentalImgList;
 
         switch(propType){
             case "Condo":
@@ -97,18 +104,32 @@ public class PropertyDetails extends AppCompatActivity {
         return rentalImgList;
     }
 
-    public void showPropImages(ArrayList<Integer> rentalImg){
-        ImageView propImg = findViewById(R.id.imgProp);
-        Integer img = rentalImg.get(0);
+    public void showPropImages(){
         try{
+            Integer img = rentalImgList.get(0);
+            ImageView propImg = findViewById(R.id.imgProp);
             propImg.setImageResource(img);
+            currentImg = 0;
         } catch (Exception e){
             Log.d("Response", e.toString());
         }
     }
 
+    public void viewNextImg(View v){
+        if(currentImg < rentalImgList.size() - 1){
+            currentImg = currentImg + 1;
+            Integer img = rentalImgList.get(currentImg);
+            ImageView propImg = findViewById(R.id.imgProp);
+            propImg.setImageResource(img);
+        }
+    }
 
-    public void viewNextImg(){}
-
-    public void viewPrevImg(){}
+    public void viewPrevImg(View v){
+        if(currentImg > 0){
+            currentImg = currentImg - 1;
+            Integer img = rentalImgList.get(currentImg);
+            ImageView propImg = findViewById(R.id.imgProp);
+            propImg.setImageResource(img);
+        }
+    }
 }
