@@ -3,7 +3,6 @@ package com.example.rentalapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,11 +11,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
+import com.example.rentalapp.Helpers.GetRentalPictures;
+import com.example.rentalapp.Helpers.RentalProperty;
 
-import static com.example.rentalapp.ConvertResponse.getPropertyData;
+import java.util.ArrayList;
+
+import static com.example.rentalapp.Helpers.ConvertResponse.getPropertyData;
 
 public class PropertyDetails extends AppCompatActivity {
     Button btnCall;
@@ -28,12 +28,11 @@ public class PropertyDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_property_details);
         getSupportActionBar().hide();
-
+        // get property details in RentalProperty object and show the data
         RentalProperty rental = getPropDetails();
         showPropDetails(rental);
-
+        // initialize btn for calling and an an on click listener for calling Landlord on click
         btnCall = findViewById(R.id.btnCallLandlord);
-
         btnCall.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_DIAL);
             intent.setData(Uri.parse("tel:1-888-237-7945"));
@@ -52,6 +51,7 @@ public class PropertyDetails extends AppCompatActivity {
         return null;
     }
 
+    // set all the property details for each category
     private void showPropDetails(RentalProperty rental) {
         TextView price = findViewById(R.id.txtPrice);
         price.setText("Price: $" + rental.price);
@@ -84,6 +84,7 @@ public class PropertyDetails extends AppCompatActivity {
         showPropImages();
     }
 
+    // switch case to get type of rental images depending on rental data
     public ArrayList<Integer>  getPropImages(String propType){
         GetRentalPictures rentalImg = new GetRentalPictures();
 
@@ -104,6 +105,7 @@ public class PropertyDetails extends AppCompatActivity {
         return rentalImgList;
     }
 
+    // show the first image on load
     public void showPropImages(){
         try{
             Integer img = rentalImgList.get(0);

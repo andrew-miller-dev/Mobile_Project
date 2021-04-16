@@ -1,4 +1,6 @@
-package com.example.rentalapp;
+package com.example.rentalapp.Helpers;
+
+import com.example.rentalapp.R;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -97,7 +99,6 @@ public class GetRentalPictures {
         house2.add(R.drawable.house2_5);
 
         int numb = getRandomNumb(1, 2);
-
         if(numb == 1)
             return house1;
         else
