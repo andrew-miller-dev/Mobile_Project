@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     private void fetchPropData(String city) {
         AndroidNetworking.get("https://realty-mole-property-api.p.rapidapi.com/rentalListings?")
             .addQueryParameter("city", city)
-            .addQueryParameter("limit", "10")
+            .addQueryParameter("limit", "7")
             .addHeaders("x-rapidapi-key", "f1d94c35e3msh00077622ea46cbcp17d0f1jsn5a1ee2750b53")
             .addHeaders("x-rapidapi-host", "realty-mole-property-api.p.rapidapi.com")
             .setPriority(Priority.LOW)

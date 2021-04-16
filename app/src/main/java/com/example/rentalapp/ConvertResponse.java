@@ -47,18 +47,78 @@ public class ConvertResponse {
 
     public static RentalProperty getPropertyData(String response, String address){
         JSONArray props = ConvertResponse.stringToJson(response);
+        String price;
+        String datePosted;
+        String city;
+        String state;
+        String propType;
+        String bedroom;
+        String bathroom;
+        String squareFoot;
 
         for (int i = 0; i < props.length(); ++i) {
             try {
                 JSONObject prop = props.getJSONObject(i);
 
                 if(address.equals(prop.getString("formattedAddress"))){
-                    String city = prop.getString("city");
-                    int bedroom = prop.getInt("bedrooms");
-                    int bathroom = prop.getInt("bathrooms");
-                    double price = prop.getDouble("price");
+                    try{
+                        price = prop.getString("price");
+                    } catch (Exception e){
+                        price = "Negotiable";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try{
+                        datePosted = prop.getString("listedDate");
+                        datePosted = datePosted.split("T")[0];
+                    } catch (Exception e){
+                        datePosted = "N/A";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try{
+                        city = prop.getString("city");
+                    } catch (Exception e){
+                        city = "N/A";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try{
+                        state = prop.getString("state");
+                    } catch (Exception e){
+                        state = "N/A";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try {
+                        propType = prop.getString("propertyType");
+                    } catch (Exception e){
+                        propType = "N/A";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try{
+                        bedroom = prop.getString("bedrooms");
+                    }catch (Exception e){
+                        bedroom = "Studio";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try{
+                        bathroom = prop.getString("bathrooms");
+                    } catch (Exception e){
+                        bathroom = "N/A";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try{
+                        squareFoot = prop.getString("squareFootage");
+                    } catch (Exception e){
+                        squareFoot = "N/A";
+                        Log.d("Error", String.valueOf(e));
+                    }
+                    try{
+                        address = address.split(",")[0]  ;
+                    } catch (Exception e){
+                        address = "N/A";
+                        Log.d("Error", String.valueOf(e));
+                    }
 
-                    return new RentalProperty(city, address, bedroom, bathroom, price);
+
+                    return new RentalProperty(price, datePosted, city, state, address, propType, bedroom, bathroom, squareFoot);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
