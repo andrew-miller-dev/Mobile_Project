@@ -1,4 +1,4 @@
-package com.example.rentalapp;
+package com.example.rentalapp.Helpers;
 
 import android.location.Address;
 import android.location.Geocoder;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.rentalapp.CityView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,7 +20,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class ConvertResponse {
-    //helper method for converting api string response to JSONArray, could not get built in
+    // helper method for converting api string response to JSONArray, could not get built in
     // networking method to stop throwing errors.
     public static JSONArray stringToJson(String str) {
         try {
@@ -29,6 +31,7 @@ public class ConvertResponse {
         return null;
     }
 
+    // get address list from API response and return
     public static ArrayList<String> getPropAddressList(String response){
         JSONArray props = ConvertResponse.stringToJson(response);
         ArrayList<String> propList = new ArrayList<>();
@@ -41,10 +44,42 @@ public class ConvertResponse {
                 e.printStackTrace();
             }
         }
-
         return propList;
     }
 
+    // to get lat and long from the city name for Google Maps
+    public static double[] getLocFromName(String location, CityView cv){
+        double latitude = 0.0, longitude = 0.0;
+        // use google maps geocoder api to take input address and return the lat and long in doubles
+        try {
+            Geocoder geocoder = new Geocoder(cv, Locale.getDefault());
+            List<Address> addresses = geocoder.getFromLocationName(location, 5);
+            latitude = addresses.get(0).getLatitude();
+            longitude = addresses.get(0).getLongitude();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new double[]{latitude, longitude};
+    }
+
+    // to toggle visibility of property details container easily
+    public static void changeDetailsVisibility(Boolean visible, TextView propName, ImageView container, Button seeDetails){
+        if(visible){
+            // make all container components visible
+            seeDetails.setVisibility(View.VISIBLE);
+            propName.setVisibility(View.VISIBLE);
+            container.setVisibility(View.VISIBLE);
+        } else {
+            // make all container components invisible
+            seeDetails.setVisibility(View.INVISIBLE);
+            propName.setVisibility(View.INVISIBLE);
+            container.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    // helper for getting all property data from the JSON object. Many try catches as the response
+    // from the api could vary wildly in what was supplied depending on city
     public static RentalProperty getPropertyData(String response, String address){
         JSONArray props = ConvertResponse.stringToJson(response);
         String price;
@@ -116,45 +151,12 @@ public class ConvertResponse {
                         address = "N/A";
                         Log.d("Error", String.valueOf(e));
                     }
-
-
                     return new RentalProperty(price, datePosted, city, state, address, propType, bedroom, bathroom, squareFoot);
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-
         return null;
-    }
-
-    public static double[] getLocFromName(String location, CityView cv){
-        double latitude = 0.0, longitude = 0.0;
-        // use google maps geocoder api to take input address and return the lat and long in doubles
-        try {
-            Geocoder geocoder = new Geocoder(cv, Locale.getDefault());
-            List<Address> addresses = geocoder.getFromLocationName(location, 5);
-            latitude = addresses.get(0).getLatitude();
-            longitude = addresses.get(0).getLongitude();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return new double[]{latitude, longitude};
-    }
-
-    // to toggle visibility of property details container easily
-    public static void changeDetailsVisibility(Boolean visible, TextView propName, ImageView container, Button seeDetails){
-        if(visible){
-            // make all container components visible
-            seeDetails.setVisibility(View.VISIBLE);
-            propName.setVisibility(View.VISIBLE);
-            container.setVisibility(View.VISIBLE);
-        } else {
-            // make all container components invisible
-            seeDetails.setVisibility(View.INVISIBLE);
-            propName.setVisibility(View.INVISIBLE);
-            container.setVisibility(View.INVISIBLE);
-        }
     }
 }

@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">RentalApp</string>
+    <string name="see_detail">See Details</string>
+    <string name="prop_name">Property Name</string>
+    <string name="city">calgary</string>
+    <string name="date_posted">Date Posted:</string>
+    <string name="prop_type">Property Type:</string>
+    <string name="address">Address:</string>
+    <string name="city_name">City:</string>
+    <string name="state">State:</string>
+    <string name="square_foot">Square Footage:</string>
+    <string name="bathroom">Bathrooms:</string>
+    <string name="bedroom">Bedrooms:</string>
+    <string name="price">Price: $</string>
+    <string name="utilities">Utilities Included: None</string>
+    <string name="pets">Pet Friendly: No</string>
+    <string name="call_landlord">Call Landlord</string>
 </resources>

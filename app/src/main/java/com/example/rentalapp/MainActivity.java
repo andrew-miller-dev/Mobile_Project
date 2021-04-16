@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         pdLoading.setMessage("\tLoading...");
         pdLoading.show();
 
+        // Executor server to wait for api call response while fetching
         ExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
         Future<?> apiCallStatus = executorService.submit(() -> {
             String city = fixCityInput(inputCity.getText().toString());

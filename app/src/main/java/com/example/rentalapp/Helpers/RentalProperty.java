@@ -1,16 +1,15 @@
-package com.example.rentalapp;
+package com.example.rentalapp.Helpers;
 
 public class RentalProperty {
-    String price;
-    String datePosted;
-    String city;
-    String state;
-    String address;
-    String propType;
-    String bedroom;
-    String bathroom;
-    String squareFoot;
-
+    public String price;
+    public String datePosted;
+    public String city;
+    public String state;
+    public String address;
+    public String propType;
+    public String bedroom;
+    public String bathroom;
+    public String squareFoot;
 
     public RentalProperty(String Price, String DatePosted, String City, String State, String Address, String PropType, String Bedroom, String Bathroom, String SquareFoot){
         price = Price;

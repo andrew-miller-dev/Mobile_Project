@@ -15,7 +15,7 @@
         android:layout_marginTop="60dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
-        android:text="calgary"
+        android:text="@string/city"
         android:inputType="text"
         android:padding="10dp"
         app:layout_constraintEnd_toStartOf="@+id/btnSearchCity"
@@ -45,7 +45,6 @@
         android:layout_marginRight="49dp"
         android:onClick="searchCity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtnputCity"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_search_category_default" />
 </androidx.constraintlayout.widget.ConstraintLayout>
